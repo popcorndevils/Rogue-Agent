@@ -6,7 +6,7 @@ public class RogueAgent
     {
         Rsys.SysManager manager = new Rsys.SysManager();
 
-        while(manager.RUNNING)
+        while(manager.Running)
         {
             manager.Update();
         }

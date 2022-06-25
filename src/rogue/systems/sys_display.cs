@@ -12,14 +12,9 @@ namespace Rogue.Systems
     /// </summary>
     public class SysDisplay : BaseSys
     {
+        public event EventHandler? DisplayClosed;
         private RenderWindow Window;
         private CircleShape Shape;
-
-        public bool RUNNING {
-            get {
-                return this.Window.IsOpen;
-            }
-        }
 
         public SysDisplay()
         {
@@ -28,15 +23,16 @@ namespace Rogue.Systems
             this.Window = new RenderWindow(new VideoMode(200, 200), "TEST");
             this.Shape = new CircleShape(100f);
 
-            this.Window.Closed += OnClose;
+            this.Window.Closed += this.OnWindowClose;
             this.Shape.FillColor = Color.Green;
         }
 
-        static void OnClose(object? sender, EventArgs e)
+        public void OnWindowClose(object? sender, EventArgs e)
         {
             var win = sender as RenderWindow;
             if(win != null)
             {
+                this.DisplayClosed?.Invoke(this, EventArgs.Empty);
                 win.Close();
             }
         }

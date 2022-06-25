@@ -5,20 +5,31 @@ namespace Rogue.Systems
     {
         private SysDisplay Display;
 
-        public bool RUNNING {
+        private bool _Running = false;
+        public bool Running {
             get {
-                return this.Display.RUNNING;
+                return this._Running;
+            }
+            private set {
+                this._Running = value;
             }
         }
 
         public SysManager()
         {
             this.Display = new SysDisplay();
+            this.Running = true;
+            this.Display.DisplayClosed += this.OnDisplayClose;
         }
 
         public void Update()
         {
             this.Display.Update(100);
+        }
+
+        private void OnDisplayClose(object? sender, EventArgs e)
+        {
+            this.Running = false;
         }
     }
 }
