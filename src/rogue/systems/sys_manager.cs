@@ -19,7 +19,7 @@ namespace Rogue.Systems
 
         public SysManager()
         {
-            this.Clock = new SysClock();
+            this.Clock = new SysClock() {FrameLimit = 60};
             this.Display = new SysDisplay();
 
             SvcClock.Register(this.Clock);
@@ -31,8 +31,8 @@ namespace Rogue.Systems
 
         public void Update()
         {
-            this.Clock.Update(null);
-            this.Display.Update(100);
+            this.Clock.Update();
+            this.Display.Update(this.Clock.DeltaFPS);
         }
 
         private void OnDisplayClose(object? sender, EventArgs e)

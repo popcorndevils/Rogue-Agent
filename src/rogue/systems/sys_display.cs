@@ -31,7 +31,7 @@ namespace Rogue.Systems
             }
         }
 
-        public override void Update(uint? delta)
+        public override void Update(float? delta)
         {
             this.Window.Clear();
             this.Window.DispatchEvents();
