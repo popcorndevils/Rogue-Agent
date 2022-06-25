@@ -1,3 +1,4 @@
+using Rogue.Services;
 
 namespace Rogue.Systems
 {
@@ -18,8 +19,11 @@ namespace Rogue.Systems
 
         public SysManager()
         {
-            this.Display = new SysDisplay();
             this.Clock = new SysClock();
+            this.Display = new SysDisplay();
+
+            SvcClock.Register(this.Clock);
+            SvcDisplay.Register(this.Display);
 
             // link display close event
             this.Display.DisplayClosed += this.OnDisplayClose;

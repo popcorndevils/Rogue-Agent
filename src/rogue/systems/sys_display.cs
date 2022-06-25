@@ -1,9 +1,5 @@
-using System;
-
 using SFML.Graphics;
 using SFML.Window;
-
-using Rogue.Services;
 
 namespace Rogue.Systems
 {
@@ -18,8 +14,6 @@ namespace Rogue.Systems
 
         public SysDisplay()
         {
-            SvcDisplay.Register(this);
-
             this.Window = new RenderWindow(new VideoMode(800, 600), "TEST");
             this.Shape = new CircleShape(100f);
 

@@ -1,6 +1,4 @@
-using System;
 using System.Diagnostics;
-using Rogue.Services;
 
 namespace Rogue.Systems
 {
@@ -10,7 +8,6 @@ namespace Rogue.Systems
 
         public SysClock()
         {
-            SvcClock.Register(this);
             this.Ticks = Stopwatch.GetTimestamp();
         }
 
