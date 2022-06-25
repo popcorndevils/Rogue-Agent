@@ -14,7 +14,7 @@ namespace Rogue.Systems
 
         public SysDisplay()
         {
-            this.Window = new RenderWindow(new VideoMode(800, 600), "TEST");
+            this.Window = new RenderWindow(new VideoMode(800, 600), "Rogue Agent");
             this.Shape = new CircleShape(100f);
 
             this.Window.Closed += this.OnWindowClose;
