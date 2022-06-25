@@ -1,6 +1,8 @@
 using SFML.Graphics;
 using SFML.Window;
 
+using Rogue.Services;
+
 namespace Rogue.Systems
 {
     /// <summary>
@@ -31,7 +33,7 @@ namespace Rogue.Systems
             }
         }
 
-        public override void Update(float? delta)
+        public override void Update()
         {
             this.Window.Clear();
             this.Window.DispatchEvents();

@@ -10,13 +10,13 @@ namespace Rogue.Systems
 
         public long Ticks;
         public long? TickLimit;
-        public float DeltaFPS;
+        public float DeltaFps;
 
         public long DeltaT {
             get => this._DeltaT;
             set {
                 this._DeltaT = value;
-                this.DeltaFPS = 10_000_000f / value;
+                this.DeltaFps = 10_000_000f / value;
             }
         }
 
@@ -43,7 +43,7 @@ namespace Rogue.Systems
             this._PreviousTicks = this.Ticks;
         }
 
-        public override void Update(float? delta = null)
+        public override void Update()
         {
             bool _continue = true;
             long _new_ticks = 0;

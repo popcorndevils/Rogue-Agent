@@ -32,7 +32,7 @@ namespace Rogue.Systems
         public void Update()
         {
             this.Clock.Update();
-            this.Display.Update(this.Clock.DeltaFPS);
+            this.Display.Update();
         }
 
         private void OnDisplayClose(object? sender, EventArgs e)
