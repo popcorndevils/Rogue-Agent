@@ -1,10 +1,10 @@
-﻿using Rsys = Rogue.Systems;
+﻿using Rogue.Systems;
 
 public class RogueAgent
 {
     public static void Main()
     {
-        Rsys.SysManager manager = new Rsys.SysManager();
+        var manager = new SysManager();
 
         while(manager.Running)
         {

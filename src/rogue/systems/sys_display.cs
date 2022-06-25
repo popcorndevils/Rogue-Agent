@@ -3,7 +3,7 @@ using System;
 using SFML.Graphics;
 using SFML.Window;
 
-using Rsvc = Rogue.Services;
+using Rogue.Services;
 
 namespace Rogue.Systems
 {
@@ -18,9 +18,9 @@ namespace Rogue.Systems
 
         public SysDisplay()
         {
-            Rsvc.SvcDisplay.Register(this);
+            SvcDisplay.Register(this);
 
-            this.Window = new RenderWindow(new VideoMode(200, 200), "TEST");
+            this.Window = new RenderWindow(new VideoMode(800, 600), "TEST");
             this.Shape = new CircleShape(100f);
 
             this.Window.Closed += this.OnWindowClose;
@@ -37,7 +37,7 @@ namespace Rogue.Systems
             }
         }
 
-        public override void Update(uint delta)
+        public override void Update(uint? delta)
         {
             this.Window.Clear();
             this.Window.DispatchEvents();
