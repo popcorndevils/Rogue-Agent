@@ -1,19 +1,21 @@
-using gfx = SFML.Graphics;
+using SFML.System;
+using SFML.Graphics;
 
 namespace Rogue.Aspects
 {
-    public class Label : gfx.Drawable
+    public class Label : Drawable
     {
-        public gfx.Font Font;
-        public gfx.Text GText;
+        public Font Font;
+        public Text GText;
 
         public Label(String text)
         {
-            this.Font = new gfx.Font("./res/fonts/consola.ttf");
-            this.GText = new gfx.Text(text, this.Font, 24);
+            this.Font = new Font("./res/fonts/consola.ttf");
+            this.GText = new Text(text, this.Font, 24);
+            this.GText.Position = new Vector2f(100, 100);
         }
 
-        public void Draw(gfx.RenderTarget t, gfx.RenderStates s)
+        public void Draw(RenderTarget t, RenderStates s)
         {
             this.GText.Draw(t, s);
         }

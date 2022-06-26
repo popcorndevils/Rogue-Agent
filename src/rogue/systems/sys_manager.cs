@@ -4,8 +4,9 @@ namespace Rogue.Systems
 {
     public class SysManager
     {
-        private SysDisplay Display;
         private SysClock Clock;
+        private SysDisplay Display;
+        private SysState State;
 
         private bool _Running = true;
         public bool Running {
@@ -21,9 +22,11 @@ namespace Rogue.Systems
         {
             this.Clock = new SysClock() {FrameLimit = 60};
             this.Display = new SysDisplay();
+            this.State = new SysState();
 
             SvcClock.Register(this.Clock);
             SvcDisplay.Register(this.Display);
+            SvcState.Register(this.State);
 
             // link display close event
             this.Display.DisplayClosed += this.OnDisplayClose;
@@ -32,6 +35,7 @@ namespace Rogue.Systems
         public void Update()
         {
             this.Clock.Update();
+            this.State.Update();
             this.Display.Update();
         }
 

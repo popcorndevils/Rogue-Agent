@@ -4,6 +4,7 @@ using SFML.Graphics;
 using SFML.Window;
 
 using Rogue.Aspects;
+using Rogue.Services;
 
 namespace Rogue.Systems
 {
@@ -15,6 +16,7 @@ namespace Rogue.Systems
         public event EventHandler? DisplayClosed;
         public List<Drawable> DrawBuffer = new List<Drawable>();
         private RenderWindow Window;
+        private Debug Debug = new Debug();
 
         public SysDisplay()
         {
@@ -45,6 +47,10 @@ namespace Rogue.Systems
             foreach(Drawable d in this.DrawBuffer)
             {
                 this.Window.Draw(d);
+            }
+            if(SvcState.Settings?.DISPLAY_DEBUG == true)
+            {
+                this.Window.Draw(this.Debug);
             }
             this.DrawBuffer.Clear();
             this.Window.Display();
