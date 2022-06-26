@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using SFML.Graphics;
 using SFML.Window;
 
@@ -11,18 +13,14 @@ namespace Rogue.Systems
     public class SysDisplay : BaseSys
     {
         public event EventHandler? DisplayClosed;
+        public List<Drawable> DrawBuffer = new List<Drawable>();
         private RenderWindow Window;
-        private CircleShape Shape;
-        private Label Test;
 
         public SysDisplay()
         {
             this.Window = new RenderWindow(new VideoMode(800, 600), "Rogue Agent");
-            this.Shape = new CircleShape(100f);
-            this.Test = new Label("HELP ME");
 
             this.Window.Closed += this.OnWindowClose;
-            this.Shape.FillColor = Color.Green;
         }
 
         public void OnWindowClose(object? sender, EventArgs e)
@@ -35,12 +33,20 @@ namespace Rogue.Systems
             }
         }
 
+        public void Draw(Drawable d)
+        {
+            this.DrawBuffer.Add(d);
+        }
+
         public override void Update()
         {
             this.Window.Clear();
             this.Window.DispatchEvents();
-            this.Window.Draw(this.Shape);
-            this.Window.Draw(this.Test.GText);
+            foreach(Drawable d in this.DrawBuffer)
+            {
+                this.Window.Draw(d);
+            }
+            this.DrawBuffer.Clear();
             this.Window.Display();
         }
     }
