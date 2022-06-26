@@ -1,4 +1,4 @@
-using Rogue.Systems;
+using Rogue.System;
 
 namespace Rogue.Services
 {
@@ -12,6 +12,7 @@ namespace Rogue.Services
 
         internal static void Register(T client)
         {
+            client.Initialize();
             BaseSvc<T>.Client = client;
         }
     }

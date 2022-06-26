@@ -1,10 +1,10 @@
 namespace Rogue.Types
 {
-    public struct GameSettings
+    public struct GameSetting
     {
         public bool DISPLAY_DEBUG;
 
-        public GameSettings()
+        public GameSetting()
         {
             this.DISPLAY_DEBUG = true;
         }

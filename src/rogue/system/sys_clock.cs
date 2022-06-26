@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Rogue.Systems
+namespace Rogue.System
 {
     public class SysClock : BaseSys
     {
@@ -19,7 +19,6 @@ namespace Rogue.Systems
                 this.DeltaFps = 10_000_000f / value;
             }
         }
-
 
         public float? FrameLimit {
             get => this._FrameLimit;
@@ -42,6 +41,8 @@ namespace Rogue.Systems
             this.Ticks = Stopwatch.GetTimestamp();
             this._PreviousTicks = this.Ticks;
         }
+
+        public override void Initialize() { }
 
         public override void Update()
         {

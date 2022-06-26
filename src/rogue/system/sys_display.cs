@@ -6,7 +6,7 @@ using SFML.Window;
 using Rogue.Aspects;
 using Rogue.Services;
 
-namespace Rogue.Systems
+namespace Rogue.System
 {
     /// <summary>
     /// System for handling Display.
@@ -15,7 +15,7 @@ namespace Rogue.Systems
     {
         public event EventHandler? DisplayClosed;
         public List<Drawable> DrawBuffer = new List<Drawable>();
-        private RenderWindow Window;
+        public RenderWindow Window;
         private Debug Debug = new Debug();
 
         public SysDisplay()
@@ -24,6 +24,8 @@ namespace Rogue.Systems
 
             this.Window.Closed += this.OnWindowClose;
         }
+
+        public override void Initialize() { }
 
         public void OnWindowClose(object? sender, EventArgs e)
         {
@@ -43,7 +45,6 @@ namespace Rogue.Systems
         public override void Update()
         {
             this.Window.Clear();
-            this.Window.DispatchEvents();
             foreach(Drawable d in this.DrawBuffer)
             {
                 this.Window.Draw(d);
@@ -54,6 +55,7 @@ namespace Rogue.Systems
             }
             this.DrawBuffer.Clear();
             this.Window.Display();
+            this.Window.DispatchEvents();
         }
     }
 }

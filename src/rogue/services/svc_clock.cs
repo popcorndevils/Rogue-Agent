@@ -1,5 +1,5 @@
 using System;
-using Rsys = Rogue.Systems;
+using Rsys = Rogue.System;
 
 namespace Rogue.Services
 {
