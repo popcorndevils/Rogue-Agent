@@ -28,11 +28,11 @@ namespace Rogue.System
 
             SvcClock.Register(this.Clock);
             SvcDisplay.Register(this.Display);
-            SvcState.Register(this.State);
             SvcInput.Register(this.Input);
+            SvcState.Register(this.State);
 
             // link display close event
-            this.Display.DisplayClosed += this.OnDisplayClose;
+            SvcInput.GameExit += this.OnExitGame;
         }
 
         public void Update()
@@ -42,8 +42,9 @@ namespace Rogue.System
             this.Display.Update();
         }
 
-        private void OnDisplayClose(object? sender, EventArgs e)
+        private void OnExitGame(object? sender, EventArgs e)
         {
+            this.Display.Window.Close();
             this.Running = false;
         }
     }

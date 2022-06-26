@@ -4,6 +4,7 @@
         "Rsvc",
         "Rsys",
         "SFML",
+        "shft",
         "typeparam"
     ]
 }

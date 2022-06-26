@@ -13,7 +13,6 @@ namespace Rogue.System
     /// </summary>
     public class SysDisplay : BaseSys
     {
-        public event EventHandler? DisplayClosed;
         public List<Drawable> DrawBuffer = new List<Drawable>();
         public RenderWindow Window;
         private Debug Debug = new Debug();
@@ -21,25 +20,6 @@ namespace Rogue.System
         public SysDisplay()
         {
             this.Window = new RenderWindow(new VideoMode(800, 600), "Rogue Agent");
-
-            this.Window.Closed += this.OnWindowClose;
-        }
-
-        public override void Initialize() { }
-
-        public void OnWindowClose(object? sender, EventArgs e)
-        {
-            var win = sender as RenderWindow;
-            if(win != null)
-            {
-                this.DisplayClosed?.Invoke(this, EventArgs.Empty);
-                win.Close();
-            }
-        }
-
-        public void Draw(Drawable d)
-        {
-            this.DrawBuffer.Add(d);
         }
 
         public override void Update()
@@ -51,11 +31,17 @@ namespace Rogue.System
             }
             if(SvcState.Settings?.DISPLAY_DEBUG == true)
             {
+                this.Debug.LoadText(SvcState.DebugText);
                 this.Window.Draw(this.Debug);
             }
             this.DrawBuffer.Clear();
             this.Window.Display();
             this.Window.DispatchEvents();
+        }
+
+        public void Draw(Drawable d)
+        {
+            this.DrawBuffer.Add(d);
         }
     }
 }

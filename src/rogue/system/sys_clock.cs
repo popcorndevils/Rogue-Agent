@@ -42,8 +42,6 @@ namespace Rogue.System
             this._PreviousTicks = this.Ticks;
         }
 
-        public override void Initialize() { }
-
         public override void Update()
         {
             bool _continue = true;

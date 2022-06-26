@@ -4,7 +4,7 @@ namespace Rogue.System
 {
     public abstract class BaseSys
     {
-        public abstract void Update();
-        public abstract void Initialize();
+        public virtual void Update() {}
+        public virtual void Initialize() {}
     }
 }
