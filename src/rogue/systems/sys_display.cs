@@ -1,7 +1,7 @@
 using SFML.Graphics;
 using SFML.Window;
 
-using Rogue.Services;
+using Rogue.Aspects;
 
 namespace Rogue.Systems
 {
@@ -13,11 +13,13 @@ namespace Rogue.Systems
         public event EventHandler? DisplayClosed;
         private RenderWindow Window;
         private CircleShape Shape;
+        private Label Test;
 
         public SysDisplay()
         {
             this.Window = new RenderWindow(new VideoMode(800, 600), "Rogue Agent");
             this.Shape = new CircleShape(100f);
+            this.Test = new Label("HELP ME");
 
             this.Window.Closed += this.OnWindowClose;
             this.Shape.FillColor = Color.Green;
@@ -38,6 +40,7 @@ namespace Rogue.Systems
             this.Window.Clear();
             this.Window.DispatchEvents();
             this.Window.Draw(this.Shape);
+            this.Window.Draw(this.Test.GText);
             this.Window.Display();
         }
     }
