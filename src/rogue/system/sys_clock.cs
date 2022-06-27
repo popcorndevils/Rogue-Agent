@@ -11,12 +11,14 @@ namespace Rogue.System
         public long Ticks;
         public long? TickLimit;
         public float DeltaFps;
+        public float DeltaMS;
 
         public long DeltaT {
             get => this._DeltaT;
             set {
                 this._DeltaT = value;
                 this.DeltaFps = 10_000_000f / value;
+                this.DeltaMS = value / 10_000f;
             }
         }
 

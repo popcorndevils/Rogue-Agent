@@ -8,5 +8,6 @@ namespace Rogue.Services
         public static long? Ticks => SvcClock.Client?.Ticks;
         public static long? DeltaT => SvcClock.Client?.DeltaT;
         public static float? DeltaFps => SvcClock.Client?.DeltaFps;
+        public static float? DeltaMS => SvcClock.Client?.DeltaMS;
     }
 }

@@ -13,9 +13,9 @@ namespace Rogue.System
         public List<String> DebugText {
             get {
                 var _output = new List<String>();
-                if(SvcState.Metrics is not null)
+                if(this.Metrics is not null)
                 {
-                    foreach(KeyValuePair<DebugMetric, object?> p in SvcState.Metrics)
+                    foreach(KeyValuePair<DebugMetric, object?> p in this.Metrics)
                     {
                         _output.Add($"{p.Key} : {p.Value}");
                     }
@@ -31,7 +31,7 @@ namespace Rogue.System
 
         public override void Update()
         {
-            this.Metrics[DebugMetric.DELTA_MS] = null;
+            this.Metrics[DebugMetric.DELTA_MS] = SvcClock.DeltaMS;
             this.Metrics[DebugMetric.DELTA_FRAMES] = SvcClock.DeltaFps;
             this.Metrics[DebugMetric.DELTA_TICKS] = SvcClock.DeltaT;
         }
