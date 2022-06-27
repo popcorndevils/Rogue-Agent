@@ -1,5 +1,8 @@
 using System.Diagnostics;
 
+using Rogue.Services;
+using Rogue.Types;
+
 namespace Rogue.System
 {
     public class SysClock : BaseSys
@@ -63,6 +66,13 @@ namespace Rogue.System
             this.DeltaT = _passed;
             this._PreviousTicks = this.Ticks;
             this.Ticks = _new_ticks;
+                
+            if(SvcState.Metrics is not null)
+            {
+                SvcState.Metrics[DebugMetric.DELTA_MS] = SvcClock.DeltaMS;
+                SvcState.Metrics[DebugMetric.DELTA_FRAMES] = SvcClock.DeltaFps;
+                SvcState.Metrics[DebugMetric.DELTA_TICKS] = SvcClock.DeltaT;
+            }
         }
     }
 }

@@ -29,13 +29,6 @@ namespace Rogue.System
             SvcInput.ToggleShowDebug += this.OnToggleShowDebug;
         }
 
-        public override void Update()
-        {
-            this.Metrics[DebugMetric.DELTA_MS] = SvcClock.DeltaMS;
-            this.Metrics[DebugMetric.DELTA_FRAMES] = SvcClock.DeltaFps;
-            this.Metrics[DebugMetric.DELTA_TICKS] = SvcClock.DeltaT;
-        }
-
         public void OnToggleShowDebug(object? sender, EventArgs e)
         {
             this.Settings.DISPLAY_DEBUG = this.Settings.DISPLAY_DEBUG == false;
