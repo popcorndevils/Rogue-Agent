@@ -10,37 +10,37 @@ namespace Rogue.Services
     {
         public static event EventHandler<KeyEventArgs>? KeyPressed {
             add {
-                if (SvcDisplay.Client is not null)
+                if (SvcDisplay.Minion is not null)
                 {
-                    SvcDisplay.Client.Window.KeyPressed += value;
+                    SvcDisplay.Minion.Window.KeyPressed += value;
                 }
             }
             remove {
-                if (SvcDisplay.Client is not null)
+                if (SvcDisplay.Minion is not null)
                 {
-                    SvcDisplay.Client.Window.KeyPressed -= value;
+                    SvcDisplay.Minion.Window.KeyPressed -= value;
                 }
             }
         }
 
         public static event EventHandler? Closed {
             add {
-                if (SvcDisplay.Client is not null)
+                if (SvcDisplay.Minion is not null)
                 {
-                    SvcDisplay.Client.Window.Closed += value;
+                    SvcDisplay.Minion.Window.Closed += value;
                 }
             }
             remove {
-                if (SvcDisplay.Client is not null)
+                if (SvcDisplay.Minion is not null)
                 {
-                    SvcDisplay.Client.Window.Closed -= value;
+                    SvcDisplay.Minion.Window.Closed -= value;
                 }
             }
         }
 
         public static void Draw(Drawable d)
         {
-            SvcDisplay.Client?.Draw(d);
+            SvcDisplay.Minion?.Draw(d);
         }
     }
 }

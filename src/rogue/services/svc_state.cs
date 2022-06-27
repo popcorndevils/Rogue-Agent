@@ -9,13 +9,13 @@ namespace Rogue.Services
     public class SvcState : BaseSvc<SysState>
     {   
 
-        public static List<String>? DebugText => SvcState.Client?.DebugText;
-        public static GameSetting? Settings => SvcState.Client?.Settings;
-        public static Dictionary<DebugMetric, object?>? Metrics => SvcState.Client?.Metrics;
+        public static List<String>? DebugText => SvcState.Minion?.DebugText;
+        public static GameSetting? Settings => SvcState.Minion?.Settings;
+        public static Dictionary<DebugMetric, object?>? Metrics => SvcState.Minion?.Metrics;
 
         public static void Draw(Drawable d)
         {
-            SvcDisplay.Client?.Draw(d);
+            SvcDisplay.Minion?.Draw(d);
         }
     }
 }

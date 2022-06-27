@@ -6,30 +6,30 @@ namespace Rogue.Services
     {
         public static event EventHandler? ToggleShowDebug {
             add {
-                if (SvcInput.Client is not null)
+                if (SvcInput.Minion is not null)
                 {
-                    SvcInput.Client.ToggleShowDebug += value;
+                    SvcInput.Minion.ToggleShowDebug += value;
                 }
             }
             remove {
-                if (SvcInput.Client is not null)
+                if (SvcInput.Minion is not null)
                 {
-                    SvcInput.Client.ToggleShowDebug -= value;
+                    SvcInput.Minion.ToggleShowDebug -= value;
                 }
             }
         }
         
         public static event EventHandler? GameExit {
             add {
-                if (SvcInput.Client is not null)
+                if (SvcInput.Minion is not null)
                 {
-                    SvcInput.Client.GameExit += value;
+                    SvcInput.Minion.GameExit += value;
                 }
             }
             remove {
-                if (SvcInput.Client is not null)
+                if (SvcInput.Minion is not null)
                 {
-                    SvcInput.Client.GameExit -= value;
+                    SvcInput.Minion.GameExit -= value;
                 }
             }
         }

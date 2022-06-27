@@ -21,7 +21,7 @@ namespace Rogue.System
 
         public SysManager()
         {
-            this.Clock = new SysClock() {FrameLimit = 60};
+            this.Clock = new SysClock();
             this.Display = new SysDisplay();
             this.State = new SysState();
             this.Input = new SysInput();

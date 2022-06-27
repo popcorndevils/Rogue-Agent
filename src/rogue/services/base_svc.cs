@@ -8,12 +8,12 @@ namespace Rogue.Services
     /// <typeparam name="T">Client system of the service.</typeparam>
     public abstract class BaseSvc<T> where T : BaseSys
     {    
-        protected static T? Client;
+        protected static T? Minion;
 
         internal static void Register(T client)
         {
             client.Initialize();
-            BaseSvc<T>.Client = client;
+            BaseSvc<T>.Minion = client;
         }
     }
 }

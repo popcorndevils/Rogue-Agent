@@ -12,6 +12,7 @@ namespace Rogue.Entity
             // TODO actually implement sprite component elements
             this.Name = "TEST ME";
             // this.Texture = new gfx.Sprite(new gfx.Texture("./res/test/ball.png"));
+            // TODO actually implement sprite generation here somehow
         }
 
         public void Draw(gfx.RenderTarget t, gfx.RenderStates s)
