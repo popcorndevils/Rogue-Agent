@@ -1,10 +1,9 @@
-using System.Collections.Generic;
-
 using SFML.Graphics;
 using SFML.Window;
 
 using Rogue.Aspects;
 using Rogue.Services;
+using entity = Rogue.Entity;
 
 namespace Rogue.System
 {
@@ -13,7 +12,7 @@ namespace Rogue.System
     /// </summary>
     public class SysDisplay : BaseSys
     {
-        public List<Drawable> DrawBuffer = new List<Drawable>();
+        public List<Drawable> DrawableBuffer = new List<Drawable>();
         public RenderWindow Window;
         private Debug Debug = new Debug();
 
@@ -25,23 +24,48 @@ namespace Rogue.System
         public override void Update()
         {
             this.Window.Clear();
-            foreach(Drawable d in this.DrawBuffer)
-            {
-                this.Window.Draw(d);
-            }
-            if(SvcState.Settings?.DISPLAY_DEBUG == true)
-            {
-                this.Debug.LoadText(SvcState.DebugText);
-                this.Window.Draw(this.Debug);
-            }
-            this.DrawBuffer.Clear();
+            this.DrawBuffer();
+            this.DrawSprites();
+            this.DrawDebug();
             this.Window.Display();
             this.Window.DispatchEvents();
         }
 
         public void Draw(Drawable d)
         {
-            this.DrawBuffer.Add(d);
+            this.DrawableBuffer.Add(d);
+        }
+
+        public void DrawSprites()
+        {
+            if(entity.Spryte.Instances is not null)
+            {
+                foreach(List<entity.Spryte> sprites in entity.Spryte.Instances.Values)
+                {
+                    foreach(entity.Spryte sprite in sprites)
+                    {
+                        this.Window.Draw(sprite);
+                    }
+                }
+            }
+        }
+
+        public void DrawDebug()
+        {
+            if(SvcState.Settings?.DISPLAY_DEBUG == true)
+            {
+                this.Debug.LoadText(SvcState.DebugText);
+                this.Window.Draw(this.Debug);
+            }
+        }
+
+        public void DrawBuffer()
+        {
+            foreach(Drawable d in this.DrawableBuffer)
+            {
+                this.Window.Draw(d);
+            }
+            this.DrawableBuffer.Clear();
         }
     }
 }

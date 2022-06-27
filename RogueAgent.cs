@@ -1,4 +1,5 @@
 ﻿using Rogue.System;
+using Rogue.Entity;
 
 public class RogueAgent
 {
