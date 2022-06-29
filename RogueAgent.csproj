@@ -9,6 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="SFML.NET" Version="2.5.0" />
+    <ProjectReference Include="..\picha-lib\PichaLib.csproj">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\octavian-lib\OctavianLib.csproj">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
