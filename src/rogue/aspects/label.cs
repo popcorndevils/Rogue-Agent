@@ -8,7 +8,7 @@ namespace Rogue.Aspects
         public Font Font;
         public Text GText;
 
-        public Label(String text)
+        public Label(string text)
         {
             this.Font = new Font("./res/fonts/consola.ttf");
             this.GText = new Text(text, this.Font, 24);

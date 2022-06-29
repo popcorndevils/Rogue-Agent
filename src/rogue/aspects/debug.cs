@@ -1,10 +1,5 @@
-using System.Collections.Generic;
-
 using SFML.Graphics;
 using SFML.System;
-
-using Rogue.Types;
-using Rogue.Services;
 
 namespace Rogue.Aspects
 {
@@ -13,7 +8,7 @@ namespace Rogue.Aspects
         public Font Font = new Font("./res/fonts/consola.ttf");
         public List<Text> DisplayText = new List<Text>();
 
-        public void LoadText(List<String>? txt)
+        public void LoadText(List<string>? txt)
         {
             if(txt is not null)
             {

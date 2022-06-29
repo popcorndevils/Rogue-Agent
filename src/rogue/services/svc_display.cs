@@ -1,8 +1,6 @@
-using System;
-using Rsys = Rogue.System;
-
 using SFML.Graphics;
 using SFML.Window;
+using Rsys = Rogue.System;
 
 namespace Rogue.Services
 {
@@ -41,6 +39,11 @@ namespace Rogue.Services
         public static void Draw(Drawable d)
         {
             SvcDisplay.Minion?.Draw(d);
+        }
+
+        public static void CloseWindow()
+        {
+            SvcDisplay.Minion?.CloseWindow();
         }
     }
 }

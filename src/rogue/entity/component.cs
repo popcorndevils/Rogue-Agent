@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Rogue.Entity
 {
     public abstract class Component<T> where T : Component<T>
@@ -10,11 +8,13 @@ namespace Rogue.Entity
         }
 
         public int Layer;
+        public string Name;
 
-        public Component()
+        public Component(string name, int layer = 0)
         {
             // TODO implement Non default Layer options.
-            this.Layer = 0;
+            this.Layer = layer;
+            this.Name = name;
             this.Register();
         }
 

@@ -1,5 +1,4 @@
 using System.Diagnostics;
-
 using Rogue.Services;
 using Rogue.Types;
 
