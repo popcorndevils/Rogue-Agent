@@ -39,7 +39,7 @@ namespace Rogue.Entity
         public Spryte(string name, int layer, string template) : base(name, layer)
         {
             this.Canvas = SvcMedia.LoadResource<Canvas>(template);
-            this.Textures = this.Canvas.GenerateFrames().ToSFML();
+            this.Textures = this.Canvas.GenerateFrames(true, 20).ToSFML();
             if(this.Textures is not null && 
                this.Textures.Length > 0 && 
                this.Textures[0] is not null)

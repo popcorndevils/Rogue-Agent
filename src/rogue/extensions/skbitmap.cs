@@ -1,14 +1,13 @@
-using System.Drawing;
-using CColor = System.Drawing.Color;
+using SkiaSharp;
 using SColor = SFML.Graphics.Color;
 using SImage = SFML.Graphics.Image;
 using STexture = SFML.Graphics.Texture;
 
 namespace Rogue.Extensions
 {
-    public static class BitmapExtensions
+    public static class SKBitmapExtensions
     {
-        public static STexture[]? ToSFML(this Bitmap[] bmps)
+        public static STexture[]? ToSFML(this SKBitmap[] bmps)
         {
             if(bmps is not null)
             {
@@ -33,7 +32,7 @@ namespace Rogue.Extensions
             }
         }
         
-        public static STexture? ToSFML(this Bitmap? bmp)
+        public static STexture? ToSFML(this SKBitmap? bmp)
         {
             // TODO Move away from Bitmap which is windows only
             if(bmp is not null && OperatingSystem.IsWindows())
@@ -46,8 +45,12 @@ namespace Rogue.Extensions
                 {
                     for (int y = 0; y < bmp.Height; y++)
                     {
-                        CColor cs_color = bmp.GetPixel(x, y);
-                        sfml_color_array[x, y] = new SColor(cs_color.R, cs_color.G, cs_color.B, cs_color.A);
+                        SKColor cs_color = bmp.GetPixel(x, y);
+                        sfml_color_array[x, y] = new SColor(
+                            cs_color.Red,
+                            cs_color.Green,
+                            cs_color.Blue,
+                            cs_color.Alpha);
                     }
                 }
 

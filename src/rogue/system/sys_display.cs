@@ -27,7 +27,7 @@ namespace Rogue.System
 
         public override void Render()
         {
-            this.Window.Clear();
+            this.Window.Clear(new Color(100, 100, 100));
             this.DrawBuffer();
             this.DrawDebug();
             this.Window.Display();

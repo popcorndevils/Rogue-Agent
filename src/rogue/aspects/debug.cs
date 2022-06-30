@@ -16,7 +16,8 @@ namespace Rogue.Aspects
                 {
                     if(i >= this.DisplayText.Count)
                     {
-                        this.DisplayText.Add(new Text(txt[i], this.Font, 24));
+                        this.DisplayText.Add(
+                            new Text(txt[i], this.Font, 24){ FillColor = new Color(0, 255, 0)});
                         this.DisplayText[i].Position = new Vector2f(20, 20 + (20 * i));
                     }
                     else

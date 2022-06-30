@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="SFML.NET" Version="2.5.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.0" />
     <ProjectReference Include="..\picha-lib\PichaLib.csproj">
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
     </ProjectReference>
