@@ -1,4 +1,5 @@
 using gfx = SFML.Graphics;
+using SFML.System;
 using PichaLib;
 using Rogue.Extensions;
 using Rogue.Services;
@@ -44,7 +45,7 @@ namespace Rogue.Entity
                this.Textures[0] is not null)
             {
                 this.MsPerFrame = (this.Canvas.AnimTime * 1000f) / this.Textures.Length;
-                this.Sprite = new gfx.Sprite(this.Textures[0]);
+                this.Sprite = new gfx.Sprite(this.Textures[0]){Position = new Vector2f(200, 200)};
             }
         }
 
