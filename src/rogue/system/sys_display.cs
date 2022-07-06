@@ -1,18 +1,22 @@
 using SFML.Graphics;
 using SFML.Window;
+using SFML.System;
 using Rogue.Aspects;
 using Rogue.Services;
-using Rogue.Entity;
 
 namespace Rogue.System
 {
     /// <summary>
     /// System for handling Display.
     /// </summary>
-    public class SysDisplay : BaseSys
+    public class SysDisplay : BaseSys, Aspect
     {
         public List<Drawable> DrawableBuffer = new List<Drawable>();
         public RenderWindow Window;
+
+        public Vector2f Size => (Vector2f)this.Window.Size;
+        public Vector2f Position { get; set; }
+
         private Debug Debug = new Debug();
 
         public SysDisplay()
@@ -37,6 +41,8 @@ namespace Rogue.System
         {
             this.DrawableBuffer.Add(d);
         }
+
+        public void Draw(RenderTarget t, RenderStates s) { }
 
         public void CloseWindow()
         {

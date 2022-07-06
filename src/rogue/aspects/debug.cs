@@ -3,36 +3,28 @@ using SFML.System;
 
 namespace Rogue.Aspects
 {
-    public class Debug : Drawable
+    public class Debug : VBox
     {
-        public Font Font = new Font("./res/fonts/consola.ttf");
-        public List<Text> DisplayText = new List<Text>();
-
         public void LoadText(List<string>? txt)
         {
             if(txt is not null)
             {
                 for(int i = 0; i < txt.Count; i++)
                 {
-                    if(i >= this.DisplayText.Count)
+                    if(i >= this.Children.Count)
                     {
-                        this.DisplayText.Add(
-                            new Text(txt[i], this.Font, 24){ FillColor = new Color(0, 255, 0)});
-                        this.DisplayText[i].Position = new Vector2f(20, 20 + (20 * i));
+                        this.Children.Add(new Label(txt[i]));
                     }
                     else
                     {
-                        this.DisplayText[i].DisplayedString = txt[i];
+                        var _t = this.Children[i] as Label;
+                        if(_t is not null)
+                        {
+                            _t.DisplayedString = txt[i];
+                        }
                     }
                 }
-            }
-        }
-
-        public void Draw(RenderTarget t, RenderStates s)
-        {
-            foreach(Text txt in this.DisplayText)
-            {
-                txt.Draw(t, s);
+                this.UpdateLayout();
             }
         }
     }
