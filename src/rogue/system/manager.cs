@@ -22,9 +22,11 @@ namespace Rogue.System
             SvcClock.Register();
             SvcMedia.Register();
             SvcEntities.Register();
+            SvcGameUI.Register();
 
             // link display close event
             SvcInput.GameExit += this.OnExitGame;
+            SvcInput.ToggleShowDebug += SvcGameUI.OnToggleShowDebug;
         }
 
         public void Run()
@@ -36,15 +38,16 @@ namespace Rogue.System
         private void Update()
         {
             SvcClock.Update(null);
-            
             var _ms = SvcClock.DeltaMS;
             SvcEntities.Update(_ms);
+            SvcGameUI.Update(_ms);
             SvcDisplay.Update(_ms);
         }
 
         private void Render()
         {
             SvcEntities.Render();
+            SvcGameUI.Render();
             SvcDisplay.Render();
         }
 

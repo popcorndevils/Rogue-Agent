@@ -4,7 +4,7 @@ using Rogue.Types;
 
 namespace Rogue.System
 {
-    public partial class SysInput : BaseSys
+    public class SysInput : BaseSys
     {
         public event EventHandler? ToggleShowDebug;
         public event EventHandler? GameExit;

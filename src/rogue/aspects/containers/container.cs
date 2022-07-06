@@ -62,6 +62,12 @@ namespace Rogue.Aspects.Containers
             }
         }
 
+        public Container() {}
+        public Container(params Aspect[] aspects)
+        {
+            this.Add(aspects);
+        }
+
         public void Add(params Aspect[] aspects)
         {
             foreach(Aspect a in aspects)
@@ -86,9 +92,12 @@ namespace Rogue.Aspects.Containers
 
         public override void Draw(RenderTarget t, RenderStates s)
         {
-            foreach(Aspect a in this.Children)
+            if(this.Visible)
             {
-                a.Draw(t, s);
+                foreach(Aspect a in this.Children)
+                {
+                    a.Draw(t, s);
+                }
             }
         }
     }

@@ -15,24 +15,19 @@ namespace Rogue.Aspects
             set { }
         }
 
-        public virtual FloatRect Bounds {
-            get { return new FloatRect(); }
-        }
-
-        public virtual Vector2f Position {
-            get { return new Vector2f(); }
-            set { }
-        }
-
-        public virtual Vector2f Size {
-            get { return new Vector2f(); }
-        }
+        public virtual bool Visible { get; set; } = true;
+        public virtual FloatRect Bounds { get; }
+        public virtual Vector2f Position { get; set; }
+        public virtual Vector2f Size { get; }
 
         public virtual void Update(float? ms) { }
 
         public virtual void Draw(RenderTarget t, RenderStates s)
         {
-            this.Shape.Draw(t, s);
+            if(this.Visible)
+            {
+                this.Shape.Draw(t, s);
+            }
         }
     }
 }

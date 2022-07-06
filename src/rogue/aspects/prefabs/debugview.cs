@@ -1,11 +1,14 @@
+using Rogue.Services;
 using Rogue.Aspects.Containers;
 using Rogue.Aspects.Primitives;
 
-namespace Rogue.UI
+namespace Rogue.Aspects.Prefabs
 {
-    public class Debug : VBox
+    public class DebugView : VBox
     {
-        public Debug() : base()
+        public override bool Visible { get; set; } = false;
+
+        public DebugView() : base()
         {
             this.Margin = 20;
             this.MarginSeparator = 10;
@@ -32,6 +35,15 @@ namespace Rogue.UI
                 }
                 this.UpdateLayout();
             }
+        }
+
+        public override void Update(float? ms)
+        {
+            if(this.Visible)
+            {
+                this.LoadText(SvcState.DebugText);
+            }
+            base.Update(ms);
         }
     }
 }
