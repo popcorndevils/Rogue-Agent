@@ -5,7 +5,7 @@ namespace Rogue.System
 {
     public class SysEntities : BaseSys
     {
-        public override void Update()
+        public override void Update(float? ms)
         {
             var _ms = SvcClock.DeltaMS;
             if(Spryte.Instances is not null)

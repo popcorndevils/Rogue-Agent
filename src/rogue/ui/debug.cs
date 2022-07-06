@@ -1,10 +1,16 @@
-using SFML.Graphics;
-using SFML.System;
+using Rogue.Aspects.Containers;
+using Rogue.Aspects.Primitives;
 
-namespace Rogue.Aspects
+namespace Rogue.UI
 {
     public class Debug : VBox
     {
+        public Debug() : base()
+        {
+            this.Margin = 20;
+            this.MarginSeparator = 10;
+        }
+        
         public void LoadText(List<string>? txt)
         {
             if(txt is not null)

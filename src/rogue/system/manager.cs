@@ -35,9 +35,11 @@ namespace Rogue.System
 
         private void Update()
         {
-            SvcClock.Update();
-            SvcEntities.Update();
-            SvcDisplay.Update();
+            SvcClock.Update(null);
+            
+            var _ms = SvcClock.DeltaMS;
+            SvcEntities.Update(_ms);
+            SvcDisplay.Update(_ms);
         }
 
         private void Render()

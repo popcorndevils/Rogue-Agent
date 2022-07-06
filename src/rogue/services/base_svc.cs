@@ -24,11 +24,11 @@ namespace Rogue.Services
         /// <summary>
         /// Runs during update cycle of application.
         /// </summary>
-        internal static void Update()
+        internal static void Update(float? ms)
         {
             if(BaseSvc<T>.Minion is not null)
             {
-                BaseSvc<T>.Minion.Update();
+                BaseSvc<T>.Minion.Update(ms);
             }
         }
 
