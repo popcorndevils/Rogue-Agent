@@ -36,6 +36,51 @@ namespace Rogue.Services
             }
         }
 
+        public static event EventHandler<MouseMoveEventArgs>? MouseMoved {
+            add {
+                if (SvcDisplay.Minion is not null)
+                {
+                    SvcDisplay.Minion.Window.MouseMoved += value;
+                }
+            }
+            remove {
+                if (SvcDisplay.Minion is not null)
+                {
+                    SvcDisplay.Minion.Window.MouseMoved -= value;
+                }
+            }
+        }
+
+        public static event EventHandler<MouseButtonEventArgs>? MouseButtonPressed {
+            add {
+                if (SvcDisplay.Minion is not null)
+                {
+                    SvcDisplay.Minion.Window.MouseButtonPressed += value;
+                }
+            }
+            remove {
+                if (SvcDisplay.Minion is not null)
+                {
+                    SvcDisplay.Minion.Window.MouseButtonPressed -= value;
+                }
+            }
+        }
+
+        public static event EventHandler<MouseButtonEventArgs>? MouseButtonReleased {
+            add {
+                if (SvcDisplay.Minion is not null)
+                {
+                    SvcDisplay.Minion.Window.MouseButtonReleased += value;
+                }
+            }
+            remove {
+                if (SvcDisplay.Minion is not null)
+                {
+                    SvcDisplay.Minion.Window.MouseButtonReleased -= value;
+                }
+            }
+        }
+
         public static void Draw(Drawable d)
         {
             SvcDisplay.Minion?.Draw(d);

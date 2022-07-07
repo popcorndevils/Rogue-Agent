@@ -17,7 +17,9 @@ namespace Rogue.System
         public override void Initialize()
         {
             SvcDisplay.KeyPressed += this.MainUI.OnKeyPressed;
-            SvcDisplay.Closed += this.MainUI.OnWindowClosed;
+            SvcDisplay.MouseMoved += this.MainUI.OnMouseMoved;
+            SvcDisplay.MouseButtonPressed += this.MainUI.OnMouseButtonPressed;
+            SvcDisplay.MouseButtonReleased += this.MainUI.OnMouseButtonReleased;
         }
 
         public override void Update(float? ms)
