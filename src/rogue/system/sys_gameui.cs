@@ -1,8 +1,8 @@
 using Rogui;
-using Rogue.UI;
-using Rogue.Services;
+using RogueAgent.UI;
+using RogueAgent.Services;
 
-namespace Rogue.System
+namespace RogueAgent.System
 {
     public class SysGameUI : BaseSys
     {

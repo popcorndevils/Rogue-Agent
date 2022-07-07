@@ -3,7 +3,7 @@ using SColor = SFML.Graphics.Color;
 using SImage = SFML.Graphics.Image;
 using STexture = SFML.Graphics.Texture;
 
-namespace Rogue.Extensions
+namespace RogueAgent.Extensions
 {
     public static class SKBitmapExtensions
     {

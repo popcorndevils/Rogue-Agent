@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using Rogue.Services;
-using Rogue.Types;
+using RogueAgent.Services;
+using RogueAgent.Types;
 
-namespace Rogue.System
+namespace RogueAgent.System
 {
     public class SysClock : BaseSys
     {

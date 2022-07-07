@@ -1,4 +1,4 @@
-namespace Rogue.System
+namespace RogueAgent.System
 {
     public abstract class BaseSys
     {

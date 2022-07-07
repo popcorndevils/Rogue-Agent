@@ -1,10 +1,10 @@
 using gfx = SFML.Graphics;
 using SFML.System;
 using PichaLib;
-using Rogue.Extensions;
-using Rogue.Services;
+using RogueAgent.Extensions;
+using RogueAgent.Services;
 
-namespace Rogue.Entity
+namespace RogueAgent.Entity
 {
     public class Spryte : Component<Spryte>, gfx.Drawable
     {

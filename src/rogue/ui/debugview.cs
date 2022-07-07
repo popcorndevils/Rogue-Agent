@@ -1,8 +1,8 @@
 using Rogui.Containers;
 using Rogui.Primitives;
-using Rogue.Services;
+using RogueAgent.Services;
 
-namespace Rogue.UI
+namespace RogueAgent.UI
 {
     public class DebugView : VBox
     {

@@ -1,8 +1,8 @@
 using SFML.Graphics;
-using Rogue.System;
-using Rogue.Types;
+using RogueAgent.System;
+using RogueAgent.Types;
 
-namespace Rogue.Services
+namespace RogueAgent.Services
 {
     public class SvcState : BaseSvc<SysState>
     {   

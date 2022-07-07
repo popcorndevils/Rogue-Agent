@@ -1,4 +1,4 @@
-namespace Rogue.Entity
+namespace RogueAgent.Entity
 {
     public abstract class Component<T> where T : Component<T>
     {

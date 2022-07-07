@@ -1,6 +1,6 @@
-using Rogue.System;
+using RogueAgent.System;
 
-namespace Rogue.Services
+namespace RogueAgent.Services
 {
     public class SvcInput : BaseSvc<SysInput>
     {

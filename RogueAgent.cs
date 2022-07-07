@@ -1,16 +1,19 @@
-﻿using Rogue.System;
-using Rogue.Entity;
+﻿using RogueAgent.System;
+using RogueAgent.Entity;
 
-public class RogueAgent
+namespace RogueAgent
 {
-    public static void Main()
+    public class RogueGame
     {
-        var manager = new Manager();
-        var sprite = new Spryte("HELLO", 0, "riblet");
-
-        while(manager.Running)
+        public static void Main()
         {
-            manager.Run();
+            var manager = new Manager();
+            var sprite = new Spryte("HELLO", 0, "riblet");
+
+            while(manager.Running)
+            {
+                manager.Run();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
-using Rogue.System;
+using RogueAgent.System;
 
-namespace Rogue.Services
+namespace RogueAgent.Services
 {
     /// <summary>
     /// Base class for services.  Services offer a safe interface to a client system.

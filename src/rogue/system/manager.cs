@@ -1,6 +1,6 @@
-using Rogue.Services;
+using RogueAgent.Services;
 
-namespace Rogue.System
+namespace RogueAgent.System
 {
     public class Manager
     {

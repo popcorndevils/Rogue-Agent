@@ -1,7 +1,7 @@
 using Json = Newtonsoft.Json.JsonConvert;
 using PichaLib;
 
-namespace Rogue.System
+namespace RogueAgent.System
 {
     public partial class SysMedia : BaseSys
     {

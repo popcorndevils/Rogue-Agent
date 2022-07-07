@@ -2,7 +2,7 @@ using SFML.Graphics;
 using SFML.Window;
 using SFML.System;
 
-namespace Rogue.System
+namespace RogueAgent.System
 {
     /// <summary>
     /// System for handling Display.

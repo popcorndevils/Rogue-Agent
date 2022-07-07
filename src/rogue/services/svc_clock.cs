@@ -1,6 +1,6 @@
-using Rsys = Rogue.System;
+using Rsys = RogueAgent.System;
 
-namespace Rogue.Services
+namespace RogueAgent.Services
 {
     public class SvcClock : BaseSvc<Rsys.SysClock>
     {   

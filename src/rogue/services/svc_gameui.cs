@@ -1,7 +1,7 @@
 using Rogui;
-using Rogue.System;
+using RogueAgent.System;
 
-namespace Rogue.Services
+namespace RogueAgent.Services
 {
     public class SvcGameUI : BaseSvc<SysGameUI>
     {

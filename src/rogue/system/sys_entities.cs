@@ -1,7 +1,7 @@
-using Rogue.Entity;
-using Rogue.Services;
+using RogueAgent.Entity;
+using RogueAgent.Services;
 
-namespace Rogue.System
+namespace RogueAgent.System
 {
     public class SysEntities : BaseSys
     {

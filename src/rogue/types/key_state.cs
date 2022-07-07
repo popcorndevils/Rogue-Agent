@@ -1,6 +1,6 @@
 using SFML.Window;
 
-namespace Rogue.Types
+namespace RogueAgent.Types
 {
     public struct KeyState
     {

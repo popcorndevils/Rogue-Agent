@@ -1,4 +1,4 @@
-namespace Rogue.Types
+namespace RogueAgent.Types
 {
     public enum GameAction
     {
