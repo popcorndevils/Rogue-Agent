@@ -1,8 +1,8 @@
+using Rogui.Containers;
+using Rogui.Primitives;
 using Rogue.Services;
-using Rogue.Aspects.Containers;
-using Rogue.Aspects.Primitives;
 
-namespace Rogue.Aspects.Prefabs
+namespace Rogue.UI
 {
     public class DebugView : VBox
     {
