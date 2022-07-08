@@ -1,5 +1,4 @@
-using Rogui.Containers;
-using Rogui.Primitives;
+using Rogui;
 using RogueAgent.Services;
 
 namespace RogueAgent.UI
@@ -10,8 +9,8 @@ namespace RogueAgent.UI
 
         public DebugView() : base()
         {
-            this.Margin = 20;
-            this.MarginSeparator = 10;
+            this.Margin = 10;
+            this.MarginSeparator = 0;
         }
         
         public void LoadText(List<string>? txt)

@@ -1,4 +1,6 @@
-﻿using RogueAgent.System;
+﻿using RogueAgent.UI;
+using RogueAgent.System;
+using RogueAgent.Services;
 using RogueAgent.Entity;
 
 namespace RogueAgent
@@ -9,6 +11,7 @@ namespace RogueAgent
         {
             var manager = new Manager();
             var sprite = new Spryte("HELLO", 0, "riblet");
+            SvcGameUI.Add(new UITest());
 
             while(manager.Running)
             {
