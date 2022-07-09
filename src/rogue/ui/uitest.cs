@@ -1,5 +1,6 @@
 using SFML.Graphics;
 using Rogui;
+using Rogui.Themes;
 
 namespace RogueAgent.UI
 {
@@ -9,22 +10,34 @@ namespace RogueAgent.UI
         {    
             this.MarginSeparator = 5;
 
+            var _theme_normal = new ThemeButton() {
+                FillColor = new Color(255, 0, 0),
+                BorderWidth = 10,
+                BorderColor = new Color(200, 200, 200),
+                Margin = 10,
+                Padding = 50,
+            };
+
+            var _theme_hover = new ThemeButton() {
+                FillColor = new Color(0, 255, 0),
+                BorderColor = new Color(150, 150, 150),
+            };
+
+            var _theme_pressed = new ThemeButton() {
+                FillColor = new Color(0, 0, 255),
+                BorderColor = new Color(50, 50, 50),
+            };
+
             var btn1 = new Button("CLICK 1") {
-                ColorNormal = new Color(255, 0, 0),
-                ColorHover = new Color(0, 255, 0),
-                ColorPressed = new Color(0, 0, 255),
-                BorderWidth = 4,
-                Margin = 4,
-                Padding = 10,
+                ThemeNormal = _theme_normal,
+                ThemeHover = _theme_hover,
+                ThemePressed = _theme_pressed,
             };
 
             var btn2 = new Button("CLICK 2") {
-                ColorNormal = new Color(255, 0, 0),
-                ColorHover = new Color(0, 255, 0),
-                ColorPressed = new Color(0, 0, 255),
-                BorderWidth = 5,
-                Margin = 5,
-                Padding = 10,
+                ThemeNormal = _theme_normal,
+                ThemeHover = _theme_hover,
+                ThemePressed = _theme_pressed,
             };
 
             btn1.OnClick += this.HandleClick;
