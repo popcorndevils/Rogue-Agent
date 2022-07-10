@@ -1,4 +1,5 @@
 using Rogui;
+using Rogui.Primitives;
 using RogueAgent.Services;
 
 namespace RogueAgent.UI
