@@ -55,7 +55,7 @@ namespace RogueAgent.UI
             btn3.OnClick += this.HandleClick;
 
             this.ButtonList.Add(btn1, btn2);
-            this.Add(this.ButtonList, btn3);
+            this.Add(this.ButtonList, btn3, new Rogui.Shapes.Line(250, 50, 1250, 1000, 10));
         }
 
         public void HandleClick(object? sender, EventArgs e)
