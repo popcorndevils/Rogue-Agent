@@ -1,18 +1,19 @@
 using SFML.Graphics;
+using SFML.System;
 using Rogui;
 using Rogui.Themes;
 
 namespace RogueAgent.UI
 {
-    public class UITest : VBox
+    public class UITest : Aspect
     {
-        private Button btn;
+        private VBox ButtonList = new VBox();
 
         public UITest()
         {    
-            this.MarginSeparator = 5;
+            this.ButtonList.MarginSeparator = 5;
 
-            var _theme_normal = new ThemeButton() {
+            var _theme_normal = new ThemePanel() {
                 FillColor = new Color(255, 0, 0),
                 Border = 10,
                 BorderColor = new Color(200, 200, 200),
@@ -20,38 +21,47 @@ namespace RogueAgent.UI
                 Padding = 50,
             };
 
-            var _theme_hover = new ThemeButton() {
+            var _theme_hover = new ThemePanel() {
                 FillColor = new Color(0, 255, 0),
                 BorderColor = new Color(150, 150, 150),
             };
 
-            var _theme_pressed = new ThemeButton() {
+            var _theme_pressed = new ThemePanel() {
                 FillColor = new Color(0, 0, 255),
                 BorderColor = new Color(50, 50, 50),
             };
 
-            this.btn = new Button("CLICK 1") {
-                ThemeNormal = _theme_normal,
-                ThemeHover = _theme_hover,
-                ThemePressed = _theme_pressed,
+            var _theme_btn = new ThemeButton() {
+                Normal =_theme_normal,
+                Hover = _theme_hover,
+                Pressed = _theme_pressed,
+            };
+
+            var btn1 = new Button("CLICK 1") {
+                Theme = _theme_btn,
             };
 
             var btn2 = new Button("CLICK 2") {
-                ThemeNormal = _theme_normal,
-                ThemeHover = _theme_hover,
-                ThemePressed = _theme_pressed,
+                Theme = _theme_btn,
             };
 
-            this.btn.OnClick += this.HandleClick;
-            btn2.OnClick += this.HandleClick;
+            var btn3 = new Button("CLICK 3") {
+                Theme = _theme_btn,
+                Position = new Vector2f(0, 50),
+            };
 
-            this.Add(this.btn, btn2);
+            btn1.OnClick += this.HandleClick;
+            btn2.OnClick += this.HandleClick;
+            btn3.OnClick += this.HandleClick;
+
+            this.ButtonList.Add(btn1, btn2);
+            this.Add(this.ButtonList, btn3);
         }
 
         public void HandleClick(object? sender, EventArgs e)
         {
             Console.WriteLine($"{sender} CLICKED");
-            this.btn.DisplayedString = "CHANGED Right hererere";
+            // this.btn.DisplayedString = "CHANGED Right hererere";
         }
     }
 }
