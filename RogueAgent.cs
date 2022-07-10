@@ -19,7 +19,7 @@ namespace RogueAgent
             
             var _theme_normal = new ThemeButton() {
                 FillColor = new Color(255, 0, 0),
-                BorderWidth = 10,
+                Border = 10,
                 BorderColor = new Color(200, 200, 200),
                 Margin = 10,
                 Padding = 50,

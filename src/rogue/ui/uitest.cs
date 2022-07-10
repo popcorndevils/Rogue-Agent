@@ -6,13 +6,15 @@ namespace RogueAgent.UI
 {
     public class UITest : VBox
     {
+        private Button btn;
+
         public UITest()
         {    
             this.MarginSeparator = 5;
 
             var _theme_normal = new ThemeButton() {
                 FillColor = new Color(255, 0, 0),
-                BorderWidth = 10,
+                Border = 10,
                 BorderColor = new Color(200, 200, 200),
                 Margin = 10,
                 Padding = 50,
@@ -28,7 +30,7 @@ namespace RogueAgent.UI
                 BorderColor = new Color(50, 50, 50),
             };
 
-            var btn1 = new Button("CLICK 1") {
+            this.btn = new Button("CLICK 1") {
                 ThemeNormal = _theme_normal,
                 ThemeHover = _theme_hover,
                 ThemePressed = _theme_pressed,
@@ -40,16 +42,16 @@ namespace RogueAgent.UI
                 ThemePressed = _theme_pressed,
             };
 
-            btn1.OnClick += this.HandleClick;
+            this.btn.OnClick += this.HandleClick;
             btn2.OnClick += this.HandleClick;
 
-            this.Add(btn1, btn2);
-            // this.Add(btn1);
+            this.Add(this.btn, btn2);
         }
 
         public void HandleClick(object? sender, EventArgs e)
         {
             Console.WriteLine($"{sender} CLICKED");
+            this.btn.DisplayedString = "CHANGED Right hererere";
         }
     }
 }
