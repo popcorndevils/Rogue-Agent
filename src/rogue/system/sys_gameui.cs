@@ -16,10 +16,7 @@ namespace RogueAgent.System
 
         public override void Initialize()
         {
-            SvcDisplay.KeyPressed += this.MainUI.OnKeyPressed;
-            SvcDisplay.MouseMoved += this.MainUI.OnMouseMoved;
-            SvcDisplay.MouseButtonPressed += this.MainUI.OnMouseButtonPressed;
-            SvcDisplay.MouseButtonReleased += this.MainUI.OnMouseButtonReleased;
+            this.MainUI.Window = SvcDisplay.Window;
         }
 
         public override void Update(float? ms)

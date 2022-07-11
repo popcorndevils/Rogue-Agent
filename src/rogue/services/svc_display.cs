@@ -6,6 +6,16 @@ namespace RogueAgent.Services
 {
     public class SvcDisplay : BaseSvc<Rsys.SysDisplay>
     {
+        public static RenderWindow? Window {
+            get {
+                if(SvcDisplay.Minion is not null)
+                {
+                    return SvcDisplay.Minion.Window;
+                }
+                return null;
+            }
+        }
+
         public static event EventHandler<KeyEventArgs>? KeyPressed {
             add {
                 if (SvcDisplay.Minion is not null)
