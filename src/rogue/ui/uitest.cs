@@ -10,6 +10,7 @@ namespace RogueAgent.UI
     {
         private VBox ButtonList = new VBox();
         private AnimLine Line;
+        private AnimPanel Panel;
 
         public UITest()
         {    
@@ -52,6 +53,12 @@ namespace RogueAgent.UI
                 Position = new Vector2f(500, 500),
             };
 
+            this.Panel = new AnimPanel() {
+                Theme = _theme_normal,
+                Position = new Vector2f(100, 200),
+                Size = new Vector2f(400, 200),
+            };
+
             btn1.OnClick += this.HandleClick;
             btn2.OnClick += this.HandleClick;
             btn3.OnClick += this.HandleLineToggle;
@@ -59,9 +66,11 @@ namespace RogueAgent.UI
             this.Line = new Rogui.Shapes.AnimLine(250, 50, 1250, 1000, 10);
             this.Line.Opened += this.HandleOpen;
             this.Line.Closed += this.HandleClose;
+            this.Panel.Opened += this.HandleOpen;
+            this.Panel.Closed += this.HandleClose;
 
             this.ButtonList.Add(btn1, btn2);
-            this.Add(this.ButtonList, btn3, this.Line);
+            this.Add(this.ButtonList, btn3, this.Line, this.Panel);
         }
 
         public void HandleClick(object? sender, EventArgs e)
@@ -71,12 +80,12 @@ namespace RogueAgent.UI
 
         public void HandleOpen(object? sender, EventArgs e)
         {
-            Console.WriteLine("OPENED");
+            Console.WriteLine($"{sender} OPENED");
         }
 
         public void HandleClose(object? sender, EventArgs e)
         {
-            Console.WriteLine("CLOSED");
+            Console.WriteLine($"{sender} CLOSED");
         }
 
         public void HandleLineToggle(object? sender, EventArgs e)
@@ -88,6 +97,14 @@ namespace RogueAgent.UI
             else
             {
                 this.Line.Close();
+            }
+            if(!this.Panel.IsOpening && !this.Panel.IsOpen)
+            {
+                this.Panel.Open();
+            }
+            else
+            {
+                this.Panel.Close();
             }
         }
     }
