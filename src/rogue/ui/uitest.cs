@@ -1,6 +1,7 @@
 using SFML.Graphics;
 using SFML.System;
 using Rogui;
+using Rogui.Shapes;
 using Rogui.Themes;
 
 namespace RogueAgent.UI
@@ -8,6 +9,7 @@ namespace RogueAgent.UI
     public class UITest : Aspect
     {
         private VBox ButtonList = new VBox();
+        private AnimLine Line;
 
         public UITest()
         {    
@@ -47,21 +49,46 @@ namespace RogueAgent.UI
 
             var btn3 = new Button("CLICK 3") {
                 Theme = _theme_btn,
-                Position = new Vector2f(0, 50),
+                Position = new Vector2f(500, 500),
             };
 
             btn1.OnClick += this.HandleClick;
             btn2.OnClick += this.HandleClick;
-            btn3.OnClick += this.HandleClick;
+            btn3.OnClick += this.HandleLineToggle;
+
+            this.Line = new Rogui.Shapes.AnimLine(250, 50, 1250, 1000, 10);
+            this.Line.Opened += this.HandleOpen;
+            this.Line.Closed += this.HandleClose;
 
             this.ButtonList.Add(btn1, btn2);
-            this.Add(this.ButtonList, btn3, new Rogui.Shapes.Line(250, 50, 1250, 1000, 10));
+            this.Add(this.ButtonList, btn3, this.Line);
         }
 
         public void HandleClick(object? sender, EventArgs e)
         {
             Console.WriteLine($"{sender} CLICKED");
-            // this.btn.DisplayedString = "CHANGED Right hererere";
+        }
+
+        public void HandleOpen(object? sender, EventArgs e)
+        {
+            Console.WriteLine("OPENED");
+        }
+
+        public void HandleClose(object? sender, EventArgs e)
+        {
+            Console.WriteLine("CLOSED");
+        }
+
+        public void HandleLineToggle(object? sender, EventArgs e)
+        {
+            if(!this.Line.IsOpening && !this.Line.IsOpen)
+            {
+                this.Line.Open();
+            }
+            else
+            {
+                this.Line.Close();
+            }
         }
     }
 }
