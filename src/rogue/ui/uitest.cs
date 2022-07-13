@@ -10,7 +10,8 @@ namespace RogueAgent.UI
     {
         private VBox ButtonList = new VBox();
         private AnimLine Line;
-        private AnimButton Panel;
+        private AnimButton Button;
+        private AnimPanel Panel;
 
         public UITest()
         {    
@@ -53,9 +54,15 @@ namespace RogueAgent.UI
                 Position = new Vector2f(500, 500),
             };
 
-            this.Panel = new AnimButton("ANIMATED") {
+            this.Button = new AnimButton("ANIMATED") {
                 Theme = _theme_btn,
                 Position = new Vector2f(100, 200),
+            };
+
+            this.Panel = new AnimPanel() {
+                Theme = _theme_hover,
+                Position = new Vector2f(700, 500),
+                Size = new Vector2f(500, 500)
             };
 
             btn1.OnClick += this.HandleClick;
@@ -65,11 +72,13 @@ namespace RogueAgent.UI
             this.Line = new Rogui.Shapes.AnimLine(250, 50, 1250, 1000, 10);
             this.Line.Opened += this.HandleOpen;
             this.Line.Closed += this.HandleClose;
+            this.Button.Opened += this.HandleOpen;
+            this.Button.Closed += this.HandleClose;
             this.Panel.Opened += this.HandleOpen;
             this.Panel.Closed += this.HandleClose;
 
             this.ButtonList.Add(btn1, btn2);
-            this.Add(this.ButtonList, btn3, this.Line, this.Panel);
+            this.Add(this.ButtonList, btn3, this.Line, this.Button, this.Panel);
         }
 
         public void HandleClick(object? sender, EventArgs e)
@@ -104,6 +113,14 @@ namespace RogueAgent.UI
             else
             {
                 this.Panel.Close();
+            }
+            if(!this.Button.IsOpening && !this.Button.IsOpen)
+            {
+                this.Button.Open();
+            }
+            else
+            {
+                this.Button.Close();
             }
         }
     }

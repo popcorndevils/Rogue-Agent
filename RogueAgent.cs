@@ -1,8 +1,4 @@
-﻿using SFML.Graphics;
-using SFML.System;
-using Rogui;
-using Rogui.Themes;
-using RogueAgent.UI;
+﻿using RogueAgent.UI;
 using RogueAgent.System;
 using RogueAgent.Services;
 using RogueAgent.Entity;
