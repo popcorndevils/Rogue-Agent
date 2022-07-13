@@ -10,7 +10,7 @@ namespace RogueAgent.UI
     {
         private VBox ButtonList = new VBox();
         private AnimLine Line;
-        private AnimPanel Panel;
+        private AnimButton Panel;
 
         public UITest()
         {    
@@ -53,10 +53,9 @@ namespace RogueAgent.UI
                 Position = new Vector2f(500, 500),
             };
 
-            this.Panel = new AnimPanel() {
-                Theme = _theme_normal,
+            this.Panel = new AnimButton("ANIMATED") {
+                Theme = _theme_btn,
                 Position = new Vector2f(100, 200),
-                Size = new Vector2f(400, 200),
             };
 
             btn1.OnClick += this.HandleClick;
