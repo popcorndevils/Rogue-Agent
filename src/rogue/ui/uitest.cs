@@ -60,7 +60,7 @@ namespace RogueAgent.UI
             };
 
             this.Panel = new AnimPanel() {
-                Theme = _theme_hover,
+                Theme = _theme_normal,
                 Position = new Vector2f(700, 500),
                 Size = new Vector2f(500, 500)
             };
