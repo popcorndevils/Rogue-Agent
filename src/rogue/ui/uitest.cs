@@ -54,7 +54,7 @@ namespace RogueAgent.UI
                 Position = new Vector2f(500, 500),
             };
 
-            this.Button = new AnimButton("ANIMATED") {
+            this.Button = new AnimButton("ANIMATED BUTTON") {
                 Theme = _theme_btn,
                 Position = new Vector2f(100, 200),
             };
@@ -62,13 +62,13 @@ namespace RogueAgent.UI
             this.Panel = new AnimPanel() {
                 Theme = _theme_normal,
                 Position = new Vector2f(700, 500),
-                Size = new Vector2f(500, 500)
             };
 
             btn1.OnClick += this.HandleClick;
             btn2.OnClick += this.HandleClick;
             btn3.OnClick += this.HandleLineToggle;
 
+            this.Panel.Add(new Label("ANIMATED PANEL"));
             this.Line = new Rogui.Shapes.AnimLine(250, 50, 1250, 1000, 10);
             this.Line.Opened += this.HandleOpen;
             this.Line.Closed += this.HandleClose;
@@ -79,6 +79,8 @@ namespace RogueAgent.UI
 
             this.ButtonList.Add(btn1, btn2);
             this.Add(this.ButtonList, btn3, this.Line, this.Button, this.Panel);
+
+            this.Button.OnClick += this.CloseButton;
         }
 
         public void HandleClick(object? sender, EventArgs e)
@@ -122,6 +124,11 @@ namespace RogueAgent.UI
             {
                 this.Button.Close();
             }
+        }
+
+        public void CloseButton(object? sender, EventArgs e)
+        {
+            this.Button.Close();
         }
     }
 }
