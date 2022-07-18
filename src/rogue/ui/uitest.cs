@@ -1,8 +1,6 @@
 using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 using Rogui;
-using Rogui.Shapes;
 using Rogui.Themes;
 
 namespace RogueAgent.UI
@@ -48,6 +46,16 @@ namespace RogueAgent.UI
                 Theme = _theme_btn,
             };
 
+            var btn3 = new CrownButton("CROWN BUTTON") {
+                Theme = _theme_btn,
+                StartOpen = true,
+            };
+
+            var btn4 = new AnimButton("TEST 4") {
+                Theme = _theme_btn,
+                Position = new Vector2f(600, 200),
+            };
+
             this.AnimButton = new AnimButton("ANIMATED BUTTON") {
                 Theme = _theme_btn,
                 Position = new Vector2f(300, 200),
@@ -65,21 +73,23 @@ namespace RogueAgent.UI
                 "LINE BUTTON",
                 new Vector2f(250, 50),
                 new Vector2f(500, 800), 10) {
+                    Theme = _theme_btn,
                     AnimDirection = AnimDirection.CENTER,
                     AnimSpeed = 1,
                 };
             
-            this.LineButton.Theme = _theme_btn;
 
             this.LineButton.AnimationFinished += this.HandleAnimFinished;
             this.AnimButton.AnimationFinished += this.HandleAnimFinished;
             this.AnimPanel.AnimationFinished += this.HandleAnimFinished;
 
-            var _btn_list = new VBox(btn1, btn2) {
+            var _btn_list = new VBox(btn1, btn2, btn3, btn4) {
                 MarginSeparator = 5
             };
 
-            this.Add(_btn_list, this.LineButton, this.AnimButton, this.AnimPanel);
+            btn3.AddButtons(this.LineButton);
+
+            this.Add(_btn_list, this.AnimButton, this.AnimPanel);
 
             this.AnimButton.OnClick += this.CloseButton;
             this.LineButton.OnClick += this.CloseButton;
