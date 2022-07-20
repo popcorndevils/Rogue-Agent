@@ -76,9 +76,8 @@ namespace RogueAgent.UI
                     Theme = _theme_btn,
                     AnimDirection = AnimDirection.CENTER,
                     StartOpen = false,
-                };            
-
-            this.LineButton.AnimSpeed = 2;
+                    AnimSpeed = 1,
+                };
 
             this.LineButton.AnimationFinished += this.HandleAnimFinished;
             this.AnimButton.AnimationFinished += this.HandleAnimFinished;
