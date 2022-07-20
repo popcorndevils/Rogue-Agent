@@ -7,7 +7,6 @@ namespace RogueAgent.UI
 {
     public class UITest : Aspect
     {
-        // private VBox ButtonList = new VBox();
         private LineButton LineButton;
         private AnimButton AnimButton;
         private AnimPanel AnimPanel;
@@ -38,15 +37,15 @@ namespace RogueAgent.UI
                 Pressed = _theme_pressed,
             };
 
-            var btn1 = new Button("TEST 1") {
+            var btn1 = new Button("STANDARD") {
                 Theme = _theme_btn,
             };
 
-            var btn2 = new Button("TEST 2") {
+            var btn2 = new Button("TOGGLE") {
                 Theme = _theme_btn,
             };
 
-            var btn3 = new CrownButton("CROWN BUTTON") {
+            var btn3 = new CrownButton("CROWN") {
                 Theme = _theme_btn,
                 StartOpen = true,
             };
@@ -59,6 +58,7 @@ namespace RogueAgent.UI
             this.AnimButton = new AnimButton("ANIMATED BUTTON") {
                 Theme = _theme_btn,
                 Position = new Vector2f(300, 200),
+                AnimSpeed = 1,
             };
 
             this.AnimPanel = new AnimPanel(new Label("ANIMATED PANEL")) {
@@ -67,17 +67,18 @@ namespace RogueAgent.UI
             };
 
             btn1.OnClick += this.HandleClick;
-            btn2.OnClick += this.HandleLineToggle;
+            btn2.OnClick += this.HandleToggle;
 
             this.LineButton = new LineButton(
-                "LINE BUTTON",
+                "ANIMATED BUTTON",
                 new Vector2f(250, 50),
                 new Vector2f(500, 800), 10) {
                     Theme = _theme_btn,
                     AnimDirection = AnimDirection.CENTER,
-                    AnimSpeed = 1,
-                };
-            
+                    StartOpen = false,
+                };            
+
+            this.LineButton.AnimSpeed = 2;
 
             this.LineButton.AnimationFinished += this.HandleAnimFinished;
             this.AnimButton.AnimationFinished += this.HandleAnimFinished;
@@ -92,7 +93,6 @@ namespace RogueAgent.UI
             this.Add(_btn_list, this.AnimButton, this.AnimPanel);
 
             this.AnimButton.OnClick += this.CloseButton;
-            this.LineButton.OnClick += this.CloseButton;
         }
 
         public void CloseButton(object? sender, EventArgs e)
@@ -114,17 +114,13 @@ namespace RogueAgent.UI
 
         }
 
-        public void HandleLineToggle(object? sender, EventArgs e)
+        public void HandleToggle(object? sender, EventArgs e)
         {
             this.HandleClick(sender, e);
-            if(!this.AnimPanel.IsOpening && !this.AnimPanel.IsOpen)
-                { this.AnimPanel.Open(); }
-            else
-                { this.AnimPanel.Close(); }
-            if(!this.AnimButton.IsOpening && !this.AnimButton.IsOpen)
-                { this.AnimButton.Open(); }
-            else
-                { this.AnimButton.Close(); }
+            IAnimate a = this.AnimPanel as IAnimate;
+            IAnimate b = this.AnimButton as IAnimate;
+            a.Toggle();
+            b.Toggle();
         }
     }
 }
