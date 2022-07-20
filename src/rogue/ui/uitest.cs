@@ -117,11 +117,6 @@ namespace RogueAgent.UI
         public void HandleLineToggle(object? sender, EventArgs e)
         {
             this.HandleClick(sender, e);
-
-            if(!this.LineButton.IsOpening && !this.LineButton.IsOpen)
-                { this.LineButton.Open(); }
-            else
-                { this.LineButton.Close(); }
             if(!this.AnimPanel.IsOpening && !this.AnimPanel.IsOpen)
                 { this.AnimPanel.Open(); }
             else
