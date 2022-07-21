@@ -70,7 +70,7 @@ namespace RogueAgent.UI
             btn2.OnClick += this.HandleToggle;
 
             this.LineButton = new LineButton(
-                "ANIMATED BUTTON",
+                "LINE BUTTON",
                 new Vector2f(250, 50),
                 new Vector2f(500, 800), 10) {
                     Theme = _theme_btn,
