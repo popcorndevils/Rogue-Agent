@@ -6,7 +6,8 @@ namespace RogueAgent.Services
     /// Base class for services.  Services offer a safe interface to a client system.
     /// </summary>
     /// <typeparam name="T">Client system of the service.</typeparam>
-    public abstract class BaseSvc<T> where T : BaseSys, new()
+    public abstract class BaseSvc<T> 
+    where T : BaseSys, new()
     {    
         protected static T? Minion;
 

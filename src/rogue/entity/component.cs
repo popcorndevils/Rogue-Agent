@@ -1,6 +1,7 @@
 namespace RogueAgent.Entity
 {
-    public abstract class Component<T> where T : Component<T>
+    public abstract class Component<T> 
+    where T : Component<T>
     {
         public static SortedList<int, List<T>>? Instances = new SortedList<int, List<T>>();
         private SortedList<int, List<T>>? InstancesLink {

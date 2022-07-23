@@ -45,7 +45,7 @@ namespace RogueAgent.UI
                 Theme = _theme_btn,
             };
 
-            var btn3 = new CrownButton("CROWN") {
+            var btn3 = new CrownButton<VBox>("CROWN") {
                 Theme = _theme_btn,
                 StartOpen = true,
             };
@@ -74,7 +74,7 @@ namespace RogueAgent.UI
                 new Vector2f(250, 50),
                 new Vector2f(500, 800), 10) {
                     Theme = _theme_btn,
-                    AnimDirection = AnimDirection.CENTER,
+                    AnimDirection = AnimateDirection.CENTER,
                     StartOpen = false,
                     AnimSpeed = 1,
                 };
@@ -107,7 +107,7 @@ namespace RogueAgent.UI
             Console.WriteLine($"{sender} CLICKED");
         }
 
-        public void HandleAnimFinished(object? sender, AnimState state)
+        public void HandleAnimFinished(object? sender, AnimateState state)
         {
             Console.WriteLine($"{sender}: {state}");
 

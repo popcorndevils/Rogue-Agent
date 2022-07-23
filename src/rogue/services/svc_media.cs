@@ -4,7 +4,8 @@ namespace RogueAgent.Services
 {
     public class SvcMedia : BaseSvc<SysMedia>
     {   
-        public static T LoadResource<T>(string name) where T : new()
+        public static T LoadResource<T>(string name) 
+        where T : new()
         {
             if(SvcMedia.Minion is not null)
             {
