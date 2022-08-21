@@ -8,8 +8,7 @@ namespace RogueAgent.Entity
 {
     public class Spryte : Component<Spryte>, gfx.Drawable
     {
-        
-        public Vector2f? Scale {
+        public Vector2f? Scale2f {
             get {
                 if(this.Sprite is not null)
                 {
@@ -20,7 +19,19 @@ namespace RogueAgent.Entity
             set {
                 if(this.Sprite is not null && value is not null)
                 {
+                    this._Scale = null;
                     this.Sprite.Scale = (Vector2f)value;
+                }
+            }
+        }
+
+        public float? Scale {
+            get => this._Scale;
+            set {
+                if(this.Sprite is not null && value is not null)
+                {
+                    this._Scale = value;
+                    this.Sprite.Scale = new Vector2f((float)value, (float)value);
                 }
             }
         }
@@ -67,6 +78,7 @@ namespace RogueAgent.Entity
         private gfx.Texture[]? Textures;
         private float? Timer = 0f;
         private float? MsPerFrame;
+        private float? _Scale = 1f;
         private int _Frame = 0;
         private int Frame {
             get => this._Frame;
