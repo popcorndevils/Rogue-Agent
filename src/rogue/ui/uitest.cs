@@ -48,11 +48,12 @@ namespace RogueAgent.UI
             var btn3 = new CrownButton<VBox>("CROWN") {
                 Theme = _theme_btn,
                 StartOpen = true,
+                MarginSeparator = 10,
             };
 
             var btn4 = new AnimButton("TEST 4") {
                 Theme = _theme_btn,
-                Position = new Vector2f(600, 200),
+                StartOpen = true,
             };
 
             this.AnimButton = new AnimButton("ANIMATED BUTTON") {
@@ -79,6 +80,16 @@ namespace RogueAgent.UI
                     AnimSpeed = 1,
                 };
 
+            var linebtn2 = new LineButton(
+                "LINE BUTTON 2",
+                new Vector2f(250, 50),
+                new Vector2f(500, 800), 10) {
+                    Theme = _theme_btn,
+                    AnimDirection = AnimateDirection.CENTER,
+                    StartOpen = false,
+                    AnimSpeed = 1,
+            };
+
             this.LineButton.AnimationFinished += this.HandleAnimFinished;
             this.AnimButton.AnimationFinished += this.HandleAnimFinished;
             this.AnimPanel.AnimationFinished += this.HandleAnimFinished;
@@ -87,7 +98,7 @@ namespace RogueAgent.UI
                 MarginSeparator = 5
             };
 
-            btn3.AddButtons(this.LineButton);
+            btn3.AddButtons(this.LineButton, linebtn2);
 
             this.Add(_btn_list, this.AnimButton, this.AnimPanel);
 
