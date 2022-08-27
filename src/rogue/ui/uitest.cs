@@ -17,8 +17,8 @@ namespace RogueAgent.UI
                 FillColor = new Color(255, 0, 0),
                 Border = 10,
                 BorderColor = new Color(200, 200, 200),
-                Margin = 10,
-                Padding = 50,
+                Margin = 30,
+                Padding = 10,
             };
 
             var _theme_hover = new ThemePanel() {
