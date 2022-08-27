@@ -17,7 +17,7 @@ namespace RogueAgent.UI
                 FillColor = new Color(255, 0, 0),
                 Border = 10,
                 BorderColor = new Color(200, 200, 200),
-                Margin = 30,
+                Margin = 0,
                 Padding = 10,
             };
 
@@ -67,9 +67,6 @@ namespace RogueAgent.UI
                 Position = new Vector2f(700, 500),
             };
 
-            btn1.OnClick += this.HandleClick;
-            btn2.OnClick += this.HandleToggle;
-
             this.LineButton = new LineButton(
                 "LINE BUTTON",
                 new Vector2f(250, 50),
@@ -102,7 +99,14 @@ namespace RogueAgent.UI
 
             this.Add(_btn_list, this.AnimButton, this.AnimPanel);
 
+
+            btn1.OnClick += this.HandleClick;
+            btn2.OnClick += this.HandleToggle;
             this.AnimButton.OnClick += this.CloseButton;
+            btn3.OnClick += this.HandleClick;
+            btn4.OnClick += this.HandleClick;
+            this.LineButton.OnClick += this.HandleClick;
+            linebtn2.OnClick += this.HandleClick;
         }
 
         public void CloseButton(object? sender, EventArgs e)
